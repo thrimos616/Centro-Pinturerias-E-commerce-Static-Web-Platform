@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="#4a8c1c"/>
+  <!-- White outer ring -->
+  <circle cx="16" cy="16" r="13" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Yellow dot (top-center) -->
+  <circle cx="16" cy="9" r="4" fill="#f7c948"/>
+  <!-- Red dot (bottom-right) -->
+  <circle cx="21" cy="22" r="3" fill="#e74c3c"/>
+  <!-- Blue dot (bottom-left) -->
+  <circle cx="11" cy="22" r="3" fill="#3498db"/>
+</svg>

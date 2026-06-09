@@ -1,0 +1,63 @@
+---
+import '../styles/tailwind.css';
+import '../styles/theme.css';
+import '../styles/fonts.css';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { MessageCircle } from 'lucide-react';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Centro Pinturerias',
+  description = 'Centro Pinturerias - Tu pinturería de confianza con los mejores productos para pintura, revestimientos, decoración y construcción.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}favicon.png`} />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+    
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-200">
+    <div class="min-h-screen flex flex-col">
+      <Header client:load />
+      <main class="flex-1 bg-gray-50 dark:bg-slate-950">
+        <slot />
+      </main>
+      <Footer client:load />
+      <a
+        href="https://wa.me/5492284300019"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-50"
+      >
+        <MessageCircle client:load className="w-7 h-7 text-white" />
+      </a>
+    </div>
+  </body>
+</html>
