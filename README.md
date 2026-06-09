@@ -53,7 +53,7 @@ Ensure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) and `
 
 2. Install the project dependencies:
    ```bash
-   npm install
+   bun install
    ```
 
 3. Start the development server:
